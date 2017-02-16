@@ -1,0 +1,1 @@
+This is a React Next.js plus Redux and AdminLTE-React Boilerplate App.
