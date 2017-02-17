@@ -23,41 +23,41 @@ export const loadInitData = () => dispatch =>{
 let store = null;
 export const initialState ={
     mainMenus:[{   
-            miName: 'Tasks & Jobs', 
-            activeFlag: true, 
-            miIcon: 'fa-dashboard', 
-            url:'',
-            subItems:[{
+                miName: 'Side Menu 1', 
                 activeFlag: true, 
-                url: "jobs", 
-                name:"Jobs list"
+                miIcon: 'fa-dashboard', 
+                url:'',
+                subItems:[{
+                    activeFlag: true, 
+                    url: "/", 
+                    name:"Sub Menu Item1"
+                },{
+                    activeFlag: false,
+                    url: "/",
+                    name: "Sub Menu Item2"
+                }
+            ]},{
+                activeFlag: false,
+                miName: 'Side Menu 2',
+                miIcon: 'fa-leaf',
+                url: '',                
+                subItems:[{
+                    activeFlag:false,
+                    url: '/',
+                    miIcon: 'fa-tree',
+                    name: 'Sub Menu Item 1'
+                },{
+                    activeFlag: false,
+                    url: '/',
+                    name: 'Sub Menu Item 2'
+                }]
             },{
                 activeFlag: false,
-                url: "/",
-                name: "Add New"
+                miName: 'Side Menu 3',
+                miIcon: 'fa-user',
+                url:'/',
+                subItems:[]
             }
-        ]},{
-            activeFlag: false,
-            miName: 'Orchards',
-            miIcon: 'fa-leaf',
-            url: '',                
-            subItems:[{
-                activeFlag:false,
-                url: 'orchards',
-                miIcon: 'fa-tree',
-                name: 'Orchard list'
-            },{
-                activeFlag: false,
-                url: 'weatherinfo',
-                name: 'Weather Data'
-            }]
-        },{
-            activeFlag: false,
-            miName: 'Login Form',
-            miIcon: 'fa-user',
-            url:'loginform',
-            subItems:[]
-        }
     ],
     lang: "en",
     userInfo:{}
