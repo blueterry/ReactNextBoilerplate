@@ -23,26 +23,28 @@ import MenuMain from './MenuMain';
 
 addLocaleData([...en_US, ...zh_CN]);
 
-// export default class Layout extends Document {
-//     static async getInitialProps({renderPage}){
-//         const page = renderPage();
-//         const style = styleSheet.rules().map(rule => rule.cssText).join('\n');
-//         return{...page, style}
-//     }
+export default connect(state=>state)(({children, mainMenus, title="Rekete Admin", subTitle="Version 0.1.2", breadcrumb="Page"}) =>{
 
-    // constructor(props) {
-    //     super(props);
-    //     this.store = initStore(reducer, props.isServer, props.initialState)
-    // }
-
-    //render() {
-    //    var {children, mainMenus, title = "Rekete management system"} = this.props;
-export default connect(state=>state)(({children, mainMenus, title="Rekete management system"}) =>{
-        //var store = configStore();
         //console.log('Layout->state:', state);
         var theLang =getLang();
-        //var HeaderBar = reactjsAdminlte.HeaderBar;
+
         //console.log('Layout->mainMenus:', mainMenus);
+        let showBreadcrumb = ()=>{
+            let bc = breadcrumb.split('>')
+            return(
+                <ol className="breadcrumb">
+                    <li key={'bc-home'}><a href="/"><i className="fa fa-dashboard"></i> Home</a></li>                    
+                    {bc.map((item)=>{
+                        let sItems = (item.indexOf('|') > 0 ? item.split('|'): item)
+                        return (
+                            <li key={'bc-'+item}>
+                               {Array.isArray(sItems)?<a href={'./'+sItems[1]}>{sItems[0]}</a>:item}
+                            </li>)
+                        }
+                    )}
+                </ol>
+            )
+        }
         return (           
             <IntlProvider locale={theLang} messages={theLang === "en" ? en_US : zh_CN}>
                 <div className="hold-transition skin-blue sidebar-mini full-height">                
@@ -102,7 +104,13 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete manage
                             <div className="full-height">
                                 <div className="full-height wrapper">
                                     <div className="content-wrapper">
+                                        <section className="content-header">
+                                            <h1>{title}<small>{subTitle}</small></h1>
+                                            {showBreadcrumb()}
+                                        </section>
+                                        <section className="content">
                                         {children}
+                                        </section>
                                     </div>
                                 </div>
                                 <footer className="main-footer no-margin-right">

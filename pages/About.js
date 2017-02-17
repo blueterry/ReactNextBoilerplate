@@ -1,29 +1,15 @@
 import React, { Component } from 'react';
 import reactjsAdminlte, {InfoTile}  from 'adminlte-reactjs';
-import {Provider} from 'react-redux';
-import {reducer, initStore, initialState, loadInitData} from '../store/store';
 
-import Layout from '../components/Layout';
+import AdminPage from './AdminPage';
 
 class About extends Component {
-    static getInitialProps({req}){
-        const isServer = !!req;
-        const store = initStore(reducer, isServer, initialState);
-        loadInitData();
-        return {initialState: store.getState(), isServer}
-    }
-
-    constructor(props) {
-        super(props);
-        this.store = initStore(reducer, props.initialState, props.isServer)
-    }
-
     render() {
-        //console.log('About-fontawesome:',FontAwesome);
         return (
-            <Provider store={this.store}>
-            <Layout>
+            <AdminPage title="About Us" subTitle="All packages listed" breadcrumb="About|About>func">
+                <h3>Packages installed in this web app</h3>
                 <ul>
+                    <li>Next.js 1.2.3</li>
                     <li>React</li>
                     <li>Redux</li>
                     <li>React intl</li>
@@ -51,8 +37,7 @@ class About extends Component {
                     </li>
                     
                 </ul>
-            </Layout>
-            </Provider>
+            </AdminPage>            
         );
     }
 }

@@ -11,11 +11,7 @@ const initialState = {
 }
 
 export var loginReducer  = (state=initialState, action) =>{
-    //console.log('loginReducer->state:', state);
-    // if(state.userInfo === undefined || state.userInfo === null){
-    //     state.userInfo = initialState.userInfo;
-    // }
-
+    
     switch(action.type){
         case NOT_LOGIN_YET:
             return Object.assign({}, state, {                                
