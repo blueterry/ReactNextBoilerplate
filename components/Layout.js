@@ -15,18 +15,20 @@ import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
 
 import {IntlProvider, addLocaleData, FormattedMessage} from 'react-intl';
-import {getLang} from '../reducers/langReducer';
+//import {getLang} from '../reducers/langReducer';
+import Lang from './Lang';
 
 //import {reducer, initStore, initialState, loadInitData} from '../store/store';
 
 import MenuMain from './MenuMain';
 
-addLocaleData([...en_US, ...zh_CN]);
+addLocaleData([...en, ...zh]);
 
-export default connect(state=>state)(({children, mainMenus, title="Rekete Admin", subTitle="Version 0.1.2", breadcrumb="Page"}) =>{
+export default connect(state=>state)(({children, mainMenus, title="Rekete Admin", subTitle="Version 0.1.2", breadcrumb="Page", lang}) =>{
 
         //console.log('Layout->state:', state);
-        var theLang =getLang();
+        //var theLang =getLang();
+        //var {lang} = this.props;
 
         //console.log('Layout->mainMenus:', mainMenus);
         let showBreadcrumb = ()=>{
@@ -46,7 +48,7 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
             )
         }
         return (           
-            <IntlProvider locale={theLang} messages={theLang === "en" ? en_US : zh_CN}>
+            <IntlProvider locale={lang} messages={lang === "en" ? en_US : zh_CN}>
                 <div className="hold-transition skin-blue sidebar-mini full-height">                
                     <Head>
                         <title>{title}</title>
@@ -58,6 +60,8 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                         <link rel="stylesheet" href="/static/ionicons201/css/ionicons.min.css" />                
                         <link rel="stylesheet" href="/static/adminlte232/css/AdminLTE.css"/>
                         <link rel="stylesheet" href="/static/adminlte232/css/skins/_all-skins.css"/>
+                        <link rel="stylesheet" href="/static/css/main.css" />
+                        
                     </Head>   
                     <div className="full-height">
                         <header className="main-header">
@@ -71,6 +75,7 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                                 </a>
                                 <div className="navbar-custom-menu">
                                     <ul className="nav navbar-nav">
+                                        
                                         <li>
                                             <Link href='/'><a>Home</a></Link>
                                         </li>
@@ -80,6 +85,7 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                                         <li>
                                             <Link href='/Login'><a>Login</a></Link>   
                                         </li>
+                                        <li><Lang/></li>
                                     </ul>
                                 </div>
                             </nav>

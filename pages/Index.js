@@ -18,7 +18,7 @@ export default class Index extends Component{
     }
 
     render(){        
-        console.log('Index->props:',this.props)
+        //console.log('Index->props:',this.props)
         
         return(
             <Provider store={this.store}>

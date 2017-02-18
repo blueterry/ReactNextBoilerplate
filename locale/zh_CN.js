@@ -29,6 +29,12 @@ const zh_CN = {
     WEATHER_DATA_RANGE:['两天內','一周內','两周内','一月内','半年内','一年内','全部'],
 	WEATHER_DATA_TYPES:['气温(C)','露点(C)','湿球温度(C)', '相对湿度(%)', '降雨量(mm)', '最大风速(km)', '平均风速(km)', '日照量(W/)', '蒸发量(mm)', '土壤湿度(%)', '土壤温度(C)', '电池电压(V)' ],
 		
+    
+    //Pages 
+    //About Page
+    aboutTitle: '关于我们',
+    aboutSubTitle: '系统包列表',
+    aboutBreadcrumb: '关于|About',
 }
 
 export default zh_CN;

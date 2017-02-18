@@ -29,6 +29,11 @@ const en_US = {
     WEATHER_DATA_RANGE:['2 Days','1 Week','2 Weeks','A Month','6 Months','One Year','All Data'],
 	WEATHER_DATA_TYPES:['Air Temperature(C)','Dew Point(C)','Wet Bulb(C)', 'Relative Humidity(%)', 'Rainfall(mm)', 'Max Gust(km)', 'Average Wind(km)', 'Irradiance(W/)', 'Evapotranspiration(mm)', 'Soil Moisture(%)', 'Soil Temperature(C)', 'Battery Voltage(V)' ],
 		
+    //Pages 
+    //About Page
+    aboutTitle: 'About Us',
+    aboutSubTitle: 'All packages list',
+    aboutBreadcrumb: 'About|About',
 
 }
 

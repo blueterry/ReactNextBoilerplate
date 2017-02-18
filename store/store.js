@@ -64,20 +64,17 @@ export const initialState ={
 }
 
 export const initStore = (reducer, initState = initialState, isServer) => {
+    
+    if(typeof localStorage !== 'undefined'){
+        //Get Init data from localStorage
+        var user = JSON.parse(localStorage.getItem('user'));        
+        initState.userInfo = {...user};
+        initState.lang = localStorage.getItem('lang');
+    }
     if(isServer && typeof window === 'undefined'){
         return createStore(reducer, initState, applyMiddleware(thunkMiddleware));
     }
-    if(!store){
-        //console.log('store->initStore->!store->isServer:', isServer);
-        //if(isServer !== undefined && isServer !== null && !isServer){
-        //console.log('--init store from client side--');
-            //console.log('localStorage->user', localStorage.getItem('user'));
-        var user = JSON.parse(localStorage.getItem('user'));
-        //console.log('store initStore user, initState:', user, initState);
-        initState.userInfo = {...user};
-        initStore.lang = localStorage.getItem('lang');
-            //store.dispatch(initMainMenu());
-        //}
+    if(!store){                
         store = createStore(reducer, initState, compose(
             applyMiddleware(thunkMiddleware),
             typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f

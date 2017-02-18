@@ -19,7 +19,9 @@ class AdminPage extends Component {
     render() {
         //console.log('About-fontawesome:',FontAwesome);
         var {children, title, subTitle, breadcrumb} = this.props;
-        console.log('AdminPage->title, subTitle, breadcrumb:', title, subTitle, breadcrumb);
+        //console.log('AdminPage->title, subTitle, breadcrumb:', title, subTitle, breadcrumb);
+        var {lang} = this.props;
+        console.log('AdminPage->props, lang:',this.props, lang);
         return (
             <Provider store={this.store}>
                 <Layout title={title} subTitle={subTitle} breadcrumb={breadcrumb}>

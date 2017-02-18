@@ -51,7 +51,7 @@ function mainMenu (state=[],action){
             //console.log('ACTIVE_MENU_ITEM_CHANGED:', obj);
             return obj;
         case ACTIVE_SUB_MENU_ITEM_CHANGED:
-            let obj1 = Object.assign([], state.mainMenus);
+            let obj1 = Object.assign([], state);
             for(var o in obj1){
                 obj1[o].activeFlag = (obj1[o].miName === action.activeMiName);
                 if(obj1[o].activeFlag){   
@@ -67,26 +67,6 @@ function mainMenu (state=[],action){
             return state;
     }
 }
-/*export var initMainMenu = ()=>{
-    return [{   
-                miName: 'Orchard Map', 
-                activeFlag: true, 
-                miIcon: 'fa-dashboard', 
-                subItems:[{
-                    activeFlag: true, 
-                    url: "test", 
-                    name:"hello1"
-                },{
-                    activeFlag: false,
-                    url: "test",
-                    name: "hello 2"
-                }]},{
-                activeFlag: false,
-                miName: 'Login',
-                miIcon: 'fa-dashboard',
-                subItems:[]
-            }];
-}*/
 
 export var menuReducer = (state=[], action) =>{
     //console.log('menuReducer-state:', state);
