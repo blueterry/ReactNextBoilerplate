@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {FormattedMessage} from 'react-intl';
 
 import {activeMenuChanged, activeSubMenuChanged} from '../actions/menuActions';
 
@@ -29,7 +30,7 @@ class MenuItem extends Component {
                                 <li key={si.name} className={si.activeFlag?"active":""}>
                                     <a onClick={(e)=>this.onSubMiClick(e, mi, si.name, si.url)}>
                                         <i className="fa fa-circle-o"></i>
-                                        {si.name}
+                                        <FormattedMessage id={si.name} />
                                     </a>
                                 </li>
                             );
@@ -48,7 +49,7 @@ class MenuItem extends Component {
             <li className={mainClass}>
                 <a onClick={(e)=>this.onMiClick(e,miName, url)}>
                     <i className={"fa " + miIcon}></i>
-                    <span>{miName}</span>
+                    <span><FormattedMessage id={miName} /></span>
                     <span className="pull-right-container">
                         <i className="fa fa-angle-left pull-right"></i>
                     </span>

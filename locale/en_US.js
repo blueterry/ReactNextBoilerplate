@@ -1,10 +1,18 @@
 const en_US = {
+    //Menu
+    SideMenu1: "Side Menu 1",
+    SideMenu2: "Side Menu 2",
+    SideMenu3: "Side Menu 3",
+    SubMenuItem1: "Sub Menu Item 1",
+    SubMenuItem2: "Sub Menu Item 2",    
+    
     //Nav 
     appName: 'REKETE ',
     aboutMenu: 'About',
     createdBy: 'Created By',
     creator: 'Rekete',
     homeMenu: 'Home',
+    toggleNav: 'Toggle Navigation',
     langChanged: 'System langugage changed, please refresh the page',
 
     //Login Form
@@ -18,6 +26,7 @@ const en_US = {
     loginShort: 'Login',
     phUserName: 'Input your user name',
     phPassword: 'Input your password',
+    phSearch: 'Search...',
 
     //User Info
     notLoginYet: 'Not Logged in',
@@ -34,6 +43,14 @@ const en_US = {
     aboutTitle: 'About Us',
     aboutSubTitle: 'All packages list',
     aboutBreadcrumb: 'About|About',
+
+    //Index Page
+    indexTitle: 'Rekete Admin',
+    indexSubTitle: 'Version 0.1.6',
+    indexBreadcrumb: '',
+
+    //Login Page 
+    loginBreadcrumb: 'Login'
 
 }
 

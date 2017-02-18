@@ -23,7 +23,12 @@ Follow the Next.js installation to set up the Project
                 }
             }
 
-2. Todo: try to modify the web server setting to be able to upload to Heroku
+2. Added the user interface switch support 
+3. Added the notification feature
+
+Todos:
+
+1. Todo: try to modify the web server setting to be able to upload to Heroku
     
     2.1. Add express support with sample provided by Next.js
     
@@ -31,7 +36,7 @@ Follow the Next.js installation to set up the Project
             -- cannot change the default port under current Next.js version 1.2.3 , waiting for 2.0.0
             -- cannot change https to http ..
 
-3. Todo: add testing feature 
+2. Todo: add testing feature 
 
     3.1. use Karma as test tool
     3.2. npm install karma karma-chrome-launcher karma-mocha karma-mocha-reporter karma-sourcemap-loader karma-webpack mocha expect --save

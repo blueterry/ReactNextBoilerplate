@@ -4,14 +4,13 @@ import AdminPage from './AdminPage';
 import LoginForm from '../components/LoginForm';
 import LoginAPI from '../api/loginAPI';
 
-
 class Login extends Component {
     
     render() {
         let {userInfo,dispatch} = this.props;
 
         //var userInfo = {userId:0}
-        //console.log('Login.dispatch:', dispatch);
+        console.log('Login.dispatch:', dispatch);
         console.log('login.the user:',userInfo, userInfo !== undefined);
         var loggedIn = (userInfo !== undefined && userInfo.userId > 0)
         let title = loggedIn ? "Hello " + userInfo.userName : "Verification"

@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux';
 import Link from 'next/link';
 import Head from 'next/head';
+
 //import Document, { Head, Main, NextScript } from 'next/document'
 //import styleSheet from 'styled-components/lib/models/StyleSheet'
 
@@ -17,6 +18,7 @@ import zh from 'react-intl/locale-data/zh';
 import {IntlProvider, addLocaleData, FormattedMessage} from 'react-intl';
 //import {getLang} from '../reducers/langReducer';
 import Lang from './Lang';
+import InputEx from './InputEx';
 
 //import {reducer, initStore, initialState, loadInitData} from '../store/store';
 
@@ -71,19 +73,19 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                             </a>
                             <nav className="navbar navbar-static-top">
                                 <a href="#" className="sidebar-toggle">
-                                    <span className="sr-only">Toggle Navigation</span>
+                                    <span className="sr-only"><FormattedMessage id="toggleNav" /></span>
                                 </a>
                                 <div className="navbar-custom-menu">
                                     <ul className="nav navbar-nav">
                                         
                                         <li>
-                                            <Link href='/'><a>Home</a></Link>
+                                            <Link href='/'><a><FormattedMessage id="homeMenu" /></a></Link>
                                         </li>
                                         <li>
-                                            <Link href='/About'><a>About</a></Link>
+                                            <Link href='/About'><a><FormattedMessage id="aboutMenu" /></a></Link>
                                         </li>
                                         <li>
-                                            <Link href='/Login'><a>Login</a></Link>   
+                                            <Link href='/Login'><a><FormattedMessage id="loginButton" /></a></Link>   
                                         </li>
                                         <li><Lang/></li>
                                     </ul>
@@ -95,8 +97,8 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                                 <section className="sidebar">
                                     <div className="user-panel"></div>
                                     <form action="#" className="sidebar-form" method="get">
-                                        <div className="input-group">
-                                            <input type="text" name="q" className="form-control" placeholder="Search..."/>
+                                        <div className="input-group">                                            
+                                            <InputEx locId="phSearch" refName="search" type="text" className="text"/>                     
                                             <span className="input-group-btn">
                                                 <button type="submit" name="search" className="btn btn-float" id="search-btn">
                                                     <i className="fa fa-search"></i>

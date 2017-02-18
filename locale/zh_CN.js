@@ -1,4 +1,11 @@
 const zh_CN = {    
+    //Menu
+    SideMenu1: "菜单项 1",
+    SideMenu2: "菜单项 2",
+    SideMenu3: "菜单项 3",
+    SubMenuItem1: "子菜单项 1",
+    SubMenuItem2: "子菜单项 2",
+
     //Nav 
     appName: 'React Next 起始模板',
     aboutMenu: '关于',
@@ -6,6 +13,7 @@ const zh_CN = {
     creator: 'Rekete',
     homeMenu: '首页',
     langChanged: '系统语言已更改，请刷新页面。',
+    toggleNav: '切换导航',
 
     //Login Form
     currentUser:'当前用户',
@@ -18,6 +26,8 @@ const zh_CN = {
     loginShort: '登录',    
     phUserName: '请输入用户名',
     phPassword: '请输入密码',
+    phSearch: '查询...',
+
 
     //User Info
     notLoginYet: '请先登录到系统。',
@@ -35,6 +45,14 @@ const zh_CN = {
     aboutTitle: '关于我们',
     aboutSubTitle: '系统包列表',
     aboutBreadcrumb: '关于|About',
+    
+    //Index Page
+    indexTitle: '瑞科特后台管理',
+    indexSubTitle: '版本号 0.1.6',
+    indexBreadcrumb: '',
+
+    //Login Page 
+    loginBreadcrumb: '登录系统'
 }
 
 export default zh_CN;

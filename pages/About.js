@@ -1,16 +1,18 @@
+var isServer = typeof window === 'undefined'
+console.log('About->isServer:',isServer);
 import React, { Component } from 'react';
+
 import reactjsAdminlte, {InfoTile}  from 'adminlte-reactjs';
-import {connect} from 'react-redux';
+
 
 import AdminPage from './AdminPage';
-
-import zh_CN from '../locale/zh_CN';
-import en_US from '../locale/en_US';
+import global from '../api/global';
 
 class About extends Component {
     render() {
+        
         var lang = localStorage.getItem('lang');
-        var theLang = lang === 'zh'?zh_CN:en_US;
+        var theLang =global.getLangs(lang);
         console.log('About-lang:',theLang);
 
         return (
@@ -26,12 +28,12 @@ class About extends Component {
                         <ul>                            
                             <li>
                                 <div className="row">
-                                    <InfoTile width='3' 
+                                    {!isServer&&<InfoTile width='3' 
                                         content='' 
                                         icon='fa-envelope-o' 
                                         stats='1410' 
                                         subject='Messages' 
-                                        theme='bg-aqua'/>
+                                        theme='bg-aqua'/>}
                                 </div>
                             </li>
                         </ul>                        

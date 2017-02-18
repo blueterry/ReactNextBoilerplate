@@ -4,37 +4,37 @@ function mainMenu (state=[],action){
     switch(action.type){
         case INIT_MAIN_MENU:
             return Object.assign([],state, [{   
-                miName: 'Side Menu 1', 
+                miName: 'SideMenu1', 
                 activeFlag: true, 
                 miIcon: 'fa-dashboard', 
                 url:'',
                 subItems:[{
                     activeFlag: true, 
                     url: "/", 
-                    name:"Sub Menu Item1"
+                    name:"SubMenuItem1"
                 },{
                     activeFlag: false,
                     url: "/",
-                    name: "Sub Menu Item2"
+                    name: "SubMenuItem2"
                 }
             ]},{
                 activeFlag: false,
-                miName: 'Side Menu 2',
+                miName: 'SideMenu2',
                 miIcon: 'fa-leaf',
                 url: '',                
                 subItems:[{
                     activeFlag:false,
                     url: '/',
                     miIcon: 'fa-tree',
-                    name: 'Sub Menu Item 1'
+                    name: 'SubMenuItem1'
                 },{
                     activeFlag: false,
                     url: '/',
-                    name: 'Sub Menu Item 2'
+                    name: 'SubMenuItem2'
                 }]
             },{
                 activeFlag: false,
-                miName: 'Side Menu 3',
+                miName: 'SideMenu3',
                 miIcon: 'fa-user',
                 url:'/',
                 subItems:[]

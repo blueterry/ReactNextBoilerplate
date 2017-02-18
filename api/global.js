@@ -1,4 +1,6 @@
 import {FormattedMessage} from 'react-intl';
+import zh_CN from '../locale/zh_CN';
+import en_US from '../locale/en_US';
 
 const serverUrl = 'http://www.rkete.com:9000/query/';
 const uploadUrl = 'http://www.rkete.com:9000/uploads/';
@@ -7,6 +9,10 @@ export default {
 
     serverUrl,
     uploadUrl,   
+
+    getLangs(lang){
+        return lang === "zh"?zh_CN:en_US;
+    },
     checkLogin(user) {
         //console.log('global->checkLogin:',user);
         if(user===undefined || user.userId === undefined || parseInt(user.userId) <= 0){

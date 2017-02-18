@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 
 import {reducer, initStore, initialState, loadInitData} from '../store/store';
 import Layout from '../components/Layout';
+import global from '../api/global';
 
 export default class Index extends Component{   
     static getInitialProps({req}){
@@ -18,11 +19,12 @@ export default class Index extends Component{
     }
 
     render(){        
-        //console.log('Index->props:',this.props)
+        console.log('Index->props:',this.props)
         
+        var theLang = global.getLangs(this.props.initialState.lang)
         return(
             <Provider store={this.store}>
-                <Layout title="Rekete Admin" subTitle="Version 0.1.5" breadcrumb="">
+                <Layout title={theLang.indexTitle} subTitle={theLang.indexSubTitle} breadcrumb={theLang.indexBreadcrumb}>
                     <div>Home Page</div>
                 </Layout>      
             </Provider>
