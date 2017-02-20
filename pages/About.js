@@ -1,22 +1,32 @@
-var isServer = typeof window === 'undefined'
-console.log('About->isServer:',isServer);
 import React, { Component } from 'react';
+import Layout from '../components/layout';
+import {initStore} from '../store/store';
+import withRedux from 'next-redux-wrapper';
+//import reactjsAdminlte  from 'adminlte-reactjs';
 
-import reactjsAdminlte, {InfoTile}  from 'adminlte-reactjs';
-
-
-import AdminPage from './AdminPage';
 import global from '../api/global';
 
 class About extends Component {
     render() {
-        
-        var lang = localStorage.getItem('lang');
-        var theLang =global.getLangs(lang);
-        console.log('About-lang:',theLang);
-
+        const {lang, isClient} = this.props;
+        const theLang =global.getLangs(lang);
+        //const {InfoTile} = reactjsAdminlte;
+        console.log('About-lang,isClient,theLang:', lang, isClient, theLang);
+        var showClient =()=>{
+            console.log('About-isClient:',isClient);
+            if(isClient){
+                const InfoTile = require('adminlte-reactjs').InfoTile;
+                console.log('About-Client-InfoTile:', InfoTile);
+                return <InfoTile width='3' 
+                                        content='' 
+                                        icon='fa-envelope-o' 
+                                        stats='1410' 
+                                        subject='Messages' 
+                                        theme='bg-aqua'/>
+            }
+        }
         return (
-            <AdminPage title={theLang.aboutTitle} subTitle={theLang.aboutSubTitle} breadcrumb={theLang.aboutBreadcrumb}>
+            <Layout title={theLang.aboutTitle} subTitle={theLang.aboutSubTitle} breadcrumb={theLang.aboutBreadcrumb}>
                 <h3>Packages installed in this web app</h3>
                 <ul>
                     <li>Next.js 1.2.3</li>
@@ -28,12 +38,7 @@ class About extends Component {
                         <ul>                            
                             <li>
                                 <div className="row">
-                                    {!isServer&&<InfoTile width='3' 
-                                        content='' 
-                                        icon='fa-envelope-o' 
-                                        stats='1410' 
-                                        subject='Messages' 
-                                        theme='bg-aqua'/>}
+                                    {showClient()}
                                 </div>
                             </li>
                         </ul>                        
@@ -47,9 +52,11 @@ class About extends Component {
                     </li>
                     
                 </ul>
-            </AdminPage>            
+            </Layout>
         );
     }
 }
 
-export default About; //connect(state=>state)(About);
+export default withRedux(initStore,(state)=>{    
+    return state
+})(About);

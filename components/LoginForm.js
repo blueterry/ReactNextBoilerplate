@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {FormattedMessage} from 'react-intl';
 
 import loginAPI from '../api/loginAPI';
-import InputEx from '../components/InputEx';
+import InputEx from './InputEx';
 
 class LoginForm extends Component {
     constructor(props) {

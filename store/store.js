@@ -1,84 +1,103 @@
 import redux,{combineReducers, compose, createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import {initMainMenu} from '../actions/menuActions';
 import {loginReducer} from '../reducers/loginReducer';
 import {langReducer} from '../reducers/langReducer';
 import {menuReducer} from '../reducers/menuReducer';
-import loginAPI from '../api/loginAPI';
+import {clientReducer} from '../reducers/clientReducer';
+
+import {checkLocal} from '../actions/loginActions';
 
 export const reducer = combineReducers({
-    mainMenus: menuReducer,
+    userInfo: loginReducer,
     lang: langReducer,
-    userInfo: loginReducer
-});
+    mainMenus: menuReducer,
+    isClient: clientReducer
+})
 
-export const loadInitData = () => dispatch =>{
-    let user = JSON.parse(localStorage.getItem('user'));
-    let lang = localStorage.getItem('lang');
-    console.log('store->loadInitData->user.lang:', user, lang);
-    return dispatch({userInfo: user, lang: lang});
-}
-
-let store = null;
-export const initialState ={
-    mainMenus:[{   
-                miName: 'SideMenu1', 
+const initState = ()=>{    
+    let user
+    let lang = "en"
+    const isClient = typeof window === 'object'
+    const menu = [{   
+            miName: 'SideMenu1', 
+            activeFlag: true, 
+            miIcon: 'fa-dashboard', 
+            url:'',
+            subItems:[{
                 activeFlag: true, 
-                miIcon: 'fa-dashboard', 
-                url:'',
-                subItems:[{
-                    activeFlag: true, 
-                    url: "/", 
-                    name:"SubMenuItem1"
-                },{
-                    activeFlag: false,
-                    url: "/",
-                    name: "SubMenuItem2"
-                }
-            ]},{
-                activeFlag: false,
-                miName: 'SideMenu2',
-                miIcon: 'fa-leaf',
-                url: '',                
-                subItems:[{
-                    activeFlag:false,
-                    url: '/',
-                    miIcon: 'fa-tree',
-                    name: 'SubMenuItem1'
-                },{
-                    activeFlag: false,
-                    url: '/',
-                    name: 'SubMenuItem2'
-                }]
+                url: "/", 
+                name:"SubMenuItem1"
             },{
                 activeFlag: false,
-                miName: 'SideMenu3',
-                miIcon: 'fa-user',
-                url:'/',
-                subItems:[]
+                url: "/",
+                name: "SubMenuItem2"
             }
-            ],
-    lang: "en",
-    userInfo:{}
+        ]},{
+            activeFlag: false,
+            miName: 'SideMenu2',
+            miIcon: 'fa-leaf',
+            url: '',                
+            subItems:[{
+                activeFlag:false,
+                url: '/',
+                miIcon: 'fa-tree',
+                name: 'SubMenuItem1'
+            },{
+                activeFlag: false,
+                url: '/',
+                name: 'SubMenuItem2'
+            }]
+        },{
+            activeFlag: false,
+            miName: 'SideMenu3',
+            miIcon: 'fa-user',
+            url:'/',
+            subItems:[]
+        }]
+    try{
+        user = JSON.parse(localStorage.getItem('user'))
+    } catch(err){
+        user = undefined;
+    }
+    try{
+        lang = localStorage.getItem('lang');
+        if(lang === undefined || lang === ''){
+            lang = "en"
+        }
+
+    } catch(err){
+        lang = "en"
+    }
+
+    return {userInfo:user, lang, mainMenus: menu, isClient}
+}
+const saveState = (state)=>{
+    try {
+        const serState = JSON.stringify(state.userInfo)
+        localStorage.setItem('user',serState);
+    } catch(err){
+        //later add log.
+    }
 }
 
-export const initStore = (reducer, initState = initialState, isServer) => {
-    
-    if(typeof localStorage !== 'undefined'){
-        //Get Init data from localStorage
-        var user = JSON.parse(localStorage.getItem('user'));        
-        initState.userInfo = {...user};
-        initState.lang = localStorage.getItem('lang');
-    }
-    if(isServer && typeof window === 'undefined'){
-        return createStore(reducer, initState, applyMiddleware(thunkMiddleware));
-    }
-    if(!store){                
-        store = createStore(reducer, initState, compose(
-            applyMiddleware(thunkMiddleware),
-            typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
-        ));
-    }
+export const subscribeStore =(store)=>{
+    store.subscribe(()=>{
+        saveState(store.getState())
+    })
+}
+
+let store;
+export const initStore = () =>{
+    store = createStore(reducer, 
+                        initState(), 
+                        compose(
+                            applyMiddleware(thunkMiddleware),
+                                typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' 
+                                ? window.devToolsExtension() 
+                                : f => f
+                        )
+            );    
     return store;
-};
+}
+

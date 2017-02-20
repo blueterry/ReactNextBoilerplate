@@ -1,0 +1,1 @@
+export var clientReducer = (state=true, action) =>(typeof window ==='object')

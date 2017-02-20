@@ -17,7 +17,7 @@ import zh from 'react-intl/locale-data/zh';
 
 import {IntlProvider, addLocaleData, FormattedMessage} from 'react-intl';
 //import {getLang} from '../reducers/langReducer';
-import Lang from './Lang';
+import Lang from './lang';
 import InputEx from './InputEx';
 
 //import {reducer, initStore, initialState, loadInitData} from '../store/store';
@@ -26,13 +26,13 @@ import MenuMain from './MenuMain';
 
 addLocaleData([...en, ...zh]);
 
-export default connect(state=>state)(({children, mainMenus, title="Rekete Admin", subTitle="Version 0.1.2", breadcrumb="Page", lang}) =>{
-
-        //console.log('Layout->state:', state);
-        //var theLang =getLang();
-        //var {lang} = this.props;
-
-        //console.log('Layout->mainMenus:', mainMenus);
+export default connect(state=>state)(({children, mainMenus, title="Rekete Admin", subTitle="Version 0.1.2", breadcrumb="Page", lang, isClient}) =>{
+        console.log('Layout->props:', isClient);
+        
+        if(!isClient){ //No need to keep loading it.
+            return <div>Loading...</div>
+        }
+        
         let showBreadcrumb = ()=>{
             let bc = breadcrumb.split('>')
             return(
@@ -69,7 +69,9 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                         <header className="main-header">
                             <a href="#" className="logo">
                                 <span className="logo-mini"><b>R</b>KT</span>
-                                <span className="logo-lg"><FormattedMessage id="appName"/></span>
+                                <span className="logo-lg">
+                                    {isClient&&<FormattedMessage id="appName"/>}
+                                </span>
                             </a>
                             <nav className="navbar navbar-static-top">
                                 <a href="#" className="sidebar-toggle">
@@ -82,12 +84,14 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                                             <Link href='/'><a><FormattedMessage id="homeMenu" /></a></Link>
                                         </li>
                                         <li>
-                                            <Link href='/About'><a><FormattedMessage id="aboutMenu" /></a></Link>
+                                            <Link href='/about'><a><FormattedMessage id="aboutMenu" /></a></Link>
                                         </li>
                                         <li>
-                                            <Link href='/Login'><a><FormattedMessage id="loginButton" /></a></Link>   
-                                        </li>
-                                        <li><Lang/></li>
+                                            <Link href='/login'><a><FormattedMessage id="loginButton" /></a></Link>   
+                                        </li>   
+                                        <li>
+                                            <Lang/>
+                                        </li>                                     
                                     </ul>
                                 </div>
                             </nav>
@@ -129,8 +133,7 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                                     <a href="http://www.rkete.com">Rekete</a>
                                 </strong>. All rights reserved.
                             </footer>  
-                            </div>
-                            
+                            </div>                            
                         </div>
                     </div>                                                     
                 </div>     

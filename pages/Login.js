@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
+import Layout from '../components/layout';
+import {initStore} from '../store/store';
+import withRedux from 'next-redux-wrapper';
+import {FormattedMessage} from 'react-intl';
 
-import AdminPage from './AdminPage';
-import LoginForm from '../components/LoginForm';
-import LoginAPI from '../api/loginAPI';
+import LoginForm from '../components/loginForm'
 
 class Login extends Component {
-    
     render() {
-        let {userInfo,dispatch} = this.props;
+        let {lang, userInfo} = this.props;
 
-        //var userInfo = {userId:0}
-        console.log('Login.dispatch:', dispatch);
-        console.log('login.the user:',userInfo, userInfo !== undefined);
-        var loggedIn = (userInfo !== undefined && userInfo.userId > 0)
-        let title = loggedIn ? "Hello " + userInfo.userName : "Verification"
-        let subTitle = loggedIn ? "Welcome back" : "Please input user name and password"
+        console.log('login-> lang -> the user:',lang, userInfo, userInfo !== undefined);
+        const hello = lang === "zh"? userInfo.userName + "您好": "Hello " + userInfo.userName
+        const verify = lang === "zh"? "系统验证" : "Verification"
+        const welcome = lang === "zh"? "验证通过，欢迎回来！": "Welcome back"
+        const needVerify = lang === "zh"? "请输入用户名密码进行验证":"Please input user name and password" 
+
+        let loggedIn = (userInfo !== undefined && userInfo.userId > 0)
+        let title = loggedIn ? hello : verify
+        let subTitle = loggedIn ? welcome: needVerify
 
         console.log('Login->loggedIn,title,subTitle:',loggedIn, title, subTitle)
 
@@ -27,10 +31,14 @@ class Login extends Component {
             );
         };
         return (
-            <AdminPage title={title} subTitle={subTitle} breadcrumb="Login">
+            <Layout title={title} subTitle={subTitle} breadcrumb="Login">
                 {renderLogin()}
-            </AdminPage>            
+            </Layout>            
         );
     }
 }
-export default Login;
+
+export default withRedux(initStore,(state)=>{
+    console.log('login->state:',state);
+    return state
+})(Login);
