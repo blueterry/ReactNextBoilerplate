@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.clientReducer = undefined;
 
-var _typeof2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/typeof');
+var _typeof2 = require('..\\node_modules\\babel-runtime/helpers/typeof');
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 

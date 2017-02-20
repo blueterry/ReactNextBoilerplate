@@ -4,23 +4,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _getPrototypeOf = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
+var _getPrototypeOf = require('..\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/classCallCheck');
+var _classCallCheck2 = require('..\\node_modules\\babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/createClass');
+var _createClass2 = require('..\\node_modules\\babel-runtime/helpers/createClass');
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
+var _possibleConstructorReturn2 = require('..\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/inherits');
+var _inherits2 = require('..\\node_modules\\babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
@@ -33,6 +33,9 @@ var _MenuItem = require('./MenuItem');
 var _MenuItem2 = _interopRequireDefault(_MenuItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _jsxFileName = '..\\components\\MenuMain.js';
+
 
 var MenuMain = function (_Component) {
     (0, _inherits3.default)(MenuMain, _Component);
@@ -52,10 +55,22 @@ var MenuMain = function (_Component) {
 
             var menuMap = function menuMap() {
                 return mainMenus.map(function (mi) {
-                    return _react2.default.createElement(_MenuItem2.default, { key: mi.miName, menuData: mi });
+                    return _react2.default.createElement(_MenuItem2.default, { key: mi.miName, menuData: mi, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 15
+                        }
+                    });
                 });
             };
-            return _react2.default.createElement('ul', { className: 'sidebar-menu' }, _react2.default.createElement('li', { className: 'header' }, 'MAIN Navigation'), menuMap());
+            return _react2.default.createElement('ul', { className: 'sidebar-menu', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 20
+                }
+            }, _react2.default.createElement('li', { className: 'header', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 21
+                }
+            }, 'MAIN Navigation'), menuMap());
         }
     }]);
 

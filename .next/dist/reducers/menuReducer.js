@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.menuReducer = undefined;
 
-var _assign = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/core-js/object/assign');
+var _assign = require('..\\node_modules\\babel-runtime/core-js/object/assign');
 
 var _assign2 = _interopRequireDefault(_assign);
 

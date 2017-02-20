@@ -4,23 +4,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _getPrototypeOf = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
+var _getPrototypeOf = require('..\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/classCallCheck');
+var _classCallCheck2 = require('..\\node_modules\\babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/createClass');
+var _createClass2 = require('..\\node_modules\\babel-runtime/helpers/createClass');
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
+var _possibleConstructorReturn2 = require('..\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/inherits');
+var _inherits2 = require('..\\node_modules\\babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
@@ -31,6 +31,9 @@ var _react2 = _interopRequireDefault(_react);
 var _reactIntl = require('react-intl');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _jsxFileName = '..\\components\\InputEx.js';
+
 
 var InputEx = function (_Component) {
     (0, _inherits3.default)(InputEx, _Component);
@@ -57,14 +60,27 @@ var InputEx = function (_Component) {
             switch (type) {
                 case 'button':
                 case 'submit':
-                    return _react2.default.createElement('input', { type: type, value: intl.formatMessage({ id: locId }), className: className });
+                    return _react2.default.createElement('input', { type: type, value: intl.formatMessage({ id: locId }), className: className, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 11
+                        }
+                    });
                 default:
-                    return _react2.default.createElement('input', { type: type, ref: refName, placeholder: intl.formatMessage({ id: locId }), className: className });
+                    return _react2.default.createElement('input', { type: type, ref: refName, placeholder: intl.formatMessage({ id: locId }), className: className, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 13
+                        }
+                    });
             }
         }
     }]);
 
     return InputEx;
 }(_react.Component);
+
+InputEx.propTypes = {
+    locId: _react.PropTypes.any.isRequired,
+    intl: _reactIntl.intlShape.isRequired
+};
 
 exports.default = (0, _reactIntl.injectIntl)(InputEx, { withRef: true });

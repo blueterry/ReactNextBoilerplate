@@ -20,6 +20,9 @@ var _en_US2 = _interopRequireDefault(_en_US);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var _jsxFileName = '..\\api\\global.js';
+
+
 var serverUrl = 'http://www.rkete.com:9000/query/';
 var uploadUrl = 'http://www.rkete.com:9000/uploads/';
 
@@ -42,7 +45,15 @@ exports.default = {
     showLoginButton: function showLoginButton() {
         return _react2.default.createElement('button', { onClick: function onClick() {
                 return location.assign('./#/loginform');
-            }, className: 'btn btn-default' }, _react2.default.createElement(_reactIntl.FormattedMessage, { id: 'notLoginYet' }));
+            }, className: 'btn btn-default', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 26
+            }
+        }, _react2.default.createElement(_reactIntl.FormattedMessage, { id: 'notLoginYet', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 27
+            }
+        }));
     },
     fetchData: function fetchData(url, param, successFunc, failFunc) {
         //var url = new URL(server + "jobman.asmx/GetCommentsByWsjId");

@@ -4,23 +4,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _getPrototypeOf = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
+var _getPrototypeOf = require('..\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/classCallCheck');
+var _classCallCheck2 = require('..\\node_modules\\babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/createClass');
+var _createClass2 = require('..\\node_modules\\babel-runtime/helpers/createClass');
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
+var _possibleConstructorReturn2 = require('..\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/inherits');
+var _inherits2 = require('..\\node_modules\\babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
@@ -51,6 +51,9 @@ var _zh_CN2 = _interopRequireDefault(_zh_CN);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _jsxFileName = '..\\components\\lang.js';
+
 
 var Lang = function (_Component) {
     (0, _inherits3.default)(Lang, _Component);
@@ -89,7 +92,38 @@ var Lang = function (_Component) {
             var lang = this.props.lang;
             //console.log('Lang.lang:', lang);
 
-            return _react2.default.createElement('ul', { className: 'nav navbar-nav' }, _react2.default.createElement('li', null, _react2.default.createElement(_reactNotificationSystem2.default, { ref: 'notificationSystem' })), _react2.default.createElement('li', null, _react2.default.createElement('a', { className: 'hand-cursor', onClick: this.SetToEnglish }, 'EN')), _react2.default.createElement('li', null, _react2.default.createElement('a', { className: 'hand-cursor', onClick: this.SetToChinese }, '\u4E2D')));
+            return _react2.default.createElement('ul', { className: 'nav navbar-nav', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 35
+                }
+            }, _react2.default.createElement('li', {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 36
+                }
+            }, _react2.default.createElement(_reactNotificationSystem2.default, { ref: 'notificationSystem', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 37
+                }
+            })), _react2.default.createElement('li', {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                }
+            }, _react2.default.createElement('a', { className: 'hand-cursor', onClick: this.SetToEnglish, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 40
+                }
+            }, 'EN')), _react2.default.createElement('li', {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 42
+                }
+            }, _react2.default.createElement('a', { className: 'hand-cursor', onClick: this.SetToChinese, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 43
+                }
+            }, '\u4E2D')));
         }
     }, {
         key: 'SetToChinese',

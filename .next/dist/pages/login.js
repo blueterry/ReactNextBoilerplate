@@ -4,23 +4,23 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _getPrototypeOf = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
+var _getPrototypeOf = require('..\\node_modules\\babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/classCallCheck');
+var _classCallCheck2 = require('..\\node_modules\\babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/createClass');
+var _createClass2 = require('..\\node_modules\\babel-runtime/helpers/createClass');
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
+var _possibleConstructorReturn2 = require('..\\node_modules\\babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = require('E:\\NewWorks\\work_react\\ReactNextBoilerplate\\node_modules\\babel-runtime/helpers/inherits');
+var _inherits2 = require('..\\node_modules\\babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
@@ -45,6 +45,9 @@ var _loginForm = require('../components/loginForm');
 var _loginForm2 = _interopRequireDefault(_loginForm);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _jsxFileName = '..\\pages\\login.js?entry';
+
 
 var Login = function (_Component) {
     (0, _inherits3.default)(Login, _Component);
@@ -76,11 +79,29 @@ var Login = function (_Component) {
 
             var renderLogin = function renderLogin() {
                 if (loggedIn) {
-                    return _react2.default.createElement('div', null, _react2.default.createElement(_reactIntl.FormattedMessage, { id: 'currentUser' }), ' : ', userInfo.userName, ' ');
+                    return _react2.default.createElement('div', {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 27
+                        }
+                    }, _react2.default.createElement(_reactIntl.FormattedMessage, { id: 'currentUser', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 27
+                        }
+                    }), ' : ', userInfo.userName, ' ');
                 }
-                return _react2.default.createElement(_loginForm2.default, null);
+                return _react2.default.createElement(_loginForm2.default, {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 30
+                    }
+                });
             };
-            return _react2.default.createElement(_layout2.default, { title: title, subTitle: subTitle, breadcrumb: 'Login' }, renderLogin());
+            return _react2.default.createElement(_layout2.default, { title: title, subTitle: subTitle, breadcrumb: 'Login', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 34
+                }
+            }, renderLogin());
         }
     }]);
 
