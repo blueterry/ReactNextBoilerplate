@@ -5,11 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initStore = exports.subscribeStore = exports.reducer = undefined;
 
-var _stringify = require('..\\node_modules\\babel-runtime/core-js/json/stringify');
+var _stringify = require('../node_modules/babel-runtime/core-js/json/stringify');
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-var _typeof2 = require('..\\node_modules\\babel-runtime/helpers/typeof');
+var _typeof2 = require('../node_modules/babel-runtime/helpers/typeof');
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 

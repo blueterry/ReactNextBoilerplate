@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.logOut = exports.loginFail = exports.loginSuccess = exports.login = exports.checkLocal = exports.GET_LOCAL_USER = exports.LOGIN_FAIL = exports.LOGGING_IN = exports.LOGGED_IN = exports.NOT_LOGIN_YET = undefined;
 
-var _extends2 = require("..\\node_modules\\babel-runtime/helpers/extends");
+var _extends2 = require("../node_modules/babel-runtime/helpers/extends");
 
 var _extends3 = _interopRequireDefault(_extends2);
 

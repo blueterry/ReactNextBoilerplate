@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _toConsumableArray2 = require('..\\node_modules\\babel-runtime/helpers/toConsumableArray');
+var _toConsumableArray2 = require('../node_modules/babel-runtime/helpers/toConsumableArray');
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
@@ -14,11 +14,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _link = require('..\\node_modules\\next\\dist\\lib\\link.js');
+var _link = require('../node_modules/next\\dist\\lib\\link.js');
 
 var _link2 = _interopRequireDefault(_link);
 
-var _head = require('..\\node_modules\\next\\dist\\lib\\head.js');
+var _head = require('../node_modules/next\\dist\\lib\\head.js');
 
 var _head2 = _interopRequireDefault(_head);
 

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.loginReducer = undefined;
 
-var _assign = require('..\\node_modules\\babel-runtime/core-js/object/assign');
+var _assign = require('../node_modules/babel-runtime/core-js/object/assign');
 
 var _assign2 = _interopRequireDefault(_assign);
 

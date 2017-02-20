@@ -4,11 +4,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stringify = require('..\\node_modules\\babel-runtime/core-js/json/stringify');
+var _stringify = require('../node_modules/babel-runtime/core-js/json/stringify');
 
 var _stringify2 = _interopRequireDefault(_stringify);
 
-var _extends2 = require('..\\node_modules\\babel-runtime/helpers/extends');
+var _extends2 = require('../node_modules/babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
 
