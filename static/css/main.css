@@ -1,3 +1,6 @@
+div{
+  height: inherit;
+}
 .nav > li > div > a {
   cursor: pointer;
 }

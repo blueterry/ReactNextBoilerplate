@@ -22,7 +22,14 @@ export default {
 
     getLocalUser(){
         //console.log('loginAPI->getLocalUser:', localStorage.getItem('user'));
-        return JSON.parse(localStorage.getItem('user'));
+        let user;
+        try{
+            user = JSON.parse(localStorage.getItem('user'))
+        }
+        catch(err){
+            user = null;
+        }
+        return user;
     },
     verifyUser(userName, password){
         
