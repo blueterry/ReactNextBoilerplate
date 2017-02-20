@@ -10,7 +10,8 @@ process.env.PORT = process.env.PORT || 3000
 
 const app = next({
     dir: '.',
-    dev:(process.env.NODE_ENV === 'development') 
+    dev: true
+    //dev:(process.env.NODE_ENV === 'development') 
 })
 const handle = app.getRequestHandler()
 let server
