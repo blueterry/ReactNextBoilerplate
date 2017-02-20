@@ -1,7 +1,7 @@
 
 This is a React - Redux plus Next.js and AdminLTE-React Boilerplate App to make your life easier.
 
-    Next.js version: 1.2.3   https://github.com/zeit/next.js
+    Next.js version: 2.0.0-beta.31   https://github.com/zeit/next.js
     Redux version: 3.6.0
 
 
@@ -25,6 +25,7 @@ Follow the Next.js installation to set up the Project
 
 2. Added the user interface switch support 
 3. Added the notification feature
+4. Upgrade Next.js from ver.1.2.3 to ver.2.0.0-beta.31
 
 Todos:
 
