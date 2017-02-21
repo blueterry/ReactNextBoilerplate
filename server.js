@@ -35,10 +35,10 @@ app.prepare()
     if(err){
         throw err
     }
-    console.log('> Ready on http://localhost:' + process.env.PORT + '[' + process.env.NODE_ENV + ']')
+    console.log('> Ready on http://localhost:' + process.env.PORT + ' [' + process.env.NODE_ENV + ']...')
   })
   
 }).catch(err=>{
-    console.log('An error occurred, unable to start the server')
+    console.log('An error occurred, unable to start the server.')
     console.log(err)
 })

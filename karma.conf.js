@@ -5,8 +5,7 @@ module.exports = function(config){
         browsers:['PhantomJS'],
         singleRun: true,
         frameworks:['mocha'],
-        files:[ 'node_modules/jquery/dist/jquery.min.js',
-                
+        files:[ 'node_modules/jquery/dist/jquery.min.js',                
         'tests/**/*.test.js'],
         preprocessors: {
             'tests/**/*.test.js' : ['webpack', 'sourcemap']
@@ -25,9 +24,7 @@ module.exports = function(config){
                     { test: /\.json$/, loader: 'json-loader' },
                     { test: /\.scss$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap' },
                     { test: /\.js?$/, loader: 'babel',
-                        query: {
-                            presets: ['react', 'latest', 'stage-0']
-                        },                        
+                        query: {presets: ['react', 'latest', 'stage-0']},                       
                         exclude: /node_modules/
                     }
                 ]
