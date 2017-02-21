@@ -22,7 +22,7 @@ export var checkLocal = () =>{
 }
 
 export var login = (userName, password) =>{
-    console.log('login action: userName, password:', userName, password);
+    //console.log('login action: userName, password:', userName, password);
     return {
         type: LOGGING_IN,
         userName,
