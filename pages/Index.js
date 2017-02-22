@@ -16,6 +16,6 @@ class index extends Component {
 }
 
 export default withRedux(initStore,(state)=>{
-    console.log('index->state:',state);
+    //console.log('index->state:',state);
     return state
 })(index);

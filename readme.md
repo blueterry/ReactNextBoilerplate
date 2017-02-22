@@ -39,27 +39,33 @@ Todos:
             -- cannot change the default port under current Next.js version 1.2.3 , waiting for 2.0.0 [!Solved!]
             -- cannot change https to http .. [!Solved! see below : rev 2]
 
-    rev. 2. Add express support, now can upload to heroku and be able to customize              port & https->http, however still cannot run on heroku.
+    rev. 2. Add express support, now can upload to heroku and be able to customize port & https->http, however still cannot run on heroku.
     
         Problem:
-            -- Because next.js pre-compile files to /.next folder are using absolute path for reference which are not able to re-compile on heroku server.
+            -- Because next.js pre-compile files to /.next folder which are using absolute path for reference but not able to re-compile on heroku server. try to find way to compile on heroku may solve the problem.
 
 2. Todo: add testing feature 
 
     rev 1. use Karma as test tool
-    rev 2. npm install karma karma-chrome-launcher karma-mocha karma-mocha-reporter karma-sourcemap-loader karma-webpack mocha expect --save
+
+    rev 2. command:  npm install karma karma-chrome-launcher karma-mocha karma-mocha-reporter karma-sourcemap-loader karma-webpack mocha expect --save
+
     rev 3. add karma.conf.js
+
 
         Problem:
             -- cannot expose webpack.config.js , so cannot use karma for test.[!Solved! upgrade to next.js 2.0.0-beta]
             -- cannot add loader for different file types, cannot test [!Solved! upgrade to next.js 2.0.0-beta]
+
 
     rev 4. add webpack section in the karma.conf.js, 
         
         Problem:
             -- tried to npm webpack to --save-dev but not work , could be confilited with existing version in next.js, just use existing webpack ver 1.4
 
+
     rev 5. add more npm packages for testing: babel, jQuery, phantomjs etc. see package.json devDependencies for detail 
+
         Problem:
             -- still trying to find way to be able to test components and pages 
 
