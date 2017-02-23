@@ -27,7 +27,7 @@ import MenuMain from './MenuMain';
 addLocaleData([...en, ...zh]);
 
 export default connect(state=>state)(({children, mainMenus, title="Rekete Admin", subTitle="Version 0.1.2", breadcrumb="Page", lang, isClient}) =>{
-        console.log('Layout->props:', isClient);
+        console.log('Layout->props->isClient:', isClient);
         
         if(!isClient){ //No need to keep loading it.
             return <div>Loading...</div>
@@ -51,7 +51,7 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
         }
         return (           
             <IntlProvider locale={lang} messages={lang === "en" ? en_US : zh_CN}>
-                <div className="hold-transition skin-blue sidebar-mini full-height">                
+                <div className="hold-transition skin-blue sidebar-mini">                
                     <Head>
                         <title>{title}</title>
                         <meta charSet='utf-8'/>
@@ -62,81 +62,76 @@ export default connect(state=>state)(({children, mainMenus, title="Rekete Admin"
                         <link rel="stylesheet" href="/static/ionicons201/css/ionicons.min.css" />                
                         <link rel="stylesheet" href="/static/adminlte232/css/AdminLTE.css"/>
                         <link rel="stylesheet" href="/static/adminlte232/css/skins/_all-skins.css"/>
-                        <link rel="stylesheet" href="/static/css/main.css" />
-                        
-                    </Head>   
-                    <div className="full-height">
-                        <header className="main-header">
-                            <a href="#" className="logo">
-                                <span className="logo-mini"><b>R</b>KT</span>
-                                <span className="logo-lg">
-                                    {isClient&&<FormattedMessage id="appName"/>}
-                                </span>
+                        <link rel="stylesheet" href="/static/css/main.css" />                        
+                    </Head>
+                    <header className="main-header">
+                        <a href="#" className="logo">
+                            <span className="logo-mini"><b>R</b>KT</span>
+                            <span className="logo-lg">
+                                {isClient&&<FormattedMessage id="appName"/>}
+                            </span>
+                        </a>
+                        <nav className="navbar navbar-static-top">
+                            <a href="#" className="sidebar-toggle">
+                                <span className="sr-only"><FormattedMessage id="toggleNav" /></span>
                             </a>
-                            <nav className="navbar navbar-static-top">
-                                <a href="#" className="sidebar-toggle">
-                                    <span className="sr-only"><FormattedMessage id="toggleNav" /></span>
-                                </a>
-                                <div className="navbar-custom-menu">
-                                    <ul className="nav navbar-nav">
-                                        
-                                        <li>
-                                            <Link href='/'><a><FormattedMessage id="homeMenu" /></a></Link>
-                                        </li>
-                                        <li>
-                                            <Link href='/about'><a><FormattedMessage id="aboutMenu" /></a></Link>
-                                        </li>
-                                        <li>
-                                            <Link href='/login'><a><FormattedMessage id="loginButton" /></a></Link>   
-                                        </li>   
-                                        <li>
-                                            <Lang/>
-                                        </li>                                     
-                                    </ul>
+                            <div className="navbar-custom-menu">
+                                <ul className="nav navbar-nav">
+                                    <li>
+                                        <Link href='/'><a><FormattedMessage id="homeMenu" /></a></Link>
+                                    </li>
+                                    <li>
+                                        <Link href='/about'><a><FormattedMessage id="aboutMenu" /></a></Link>
+                                    </li>
+                                    <li>
+                                        <Link href='/login'><a><FormattedMessage id="loginButton" /></a></Link>   
+                                    </li>   
+                                    <li>
+                                        <Lang/>
+                                    </li>                                     
+                                </ul>
+                            </div>
+                        </nav>
+                    </header>           
+                    
+                    <aside className="main-sidebar">
+                        <section className="sidebar">
+                            <div className="user-panel"></div>
+                            <form action="#" className="sidebar-form" method="get">
+                                <div className="input-group"> 
+                                    <InputEx locId="phSearch" refName="search" type="text" className="text"/>                     
+                                    <span className="input-group-btn">
+                                        <button type="submit" name="search" className="btn btn-float" id="search-btn">
+                                            <i className="fa fa-search"></i>
+                                        </button>                                            
+                                    </span>
                                 </div>
-                            </nav>
-                        </header>
-                        <div className="full-height">                            
-                            <aside className="main-sidebar">
-                                <section className="sidebar">
-                                    <div className="user-panel"></div>
-                                    <form action="#" className="sidebar-form" method="get">
-                                        <div className="input-group">                                            
-                                            <InputEx locId="phSearch" refName="search" type="text" className="text"/>                     
-                                            <span className="input-group-btn">
-                                                <button type="submit" name="search" className="btn btn-float" id="search-btn">
-                                                    <i className="fa fa-search"></i>
-                                                </button>                                            
-                                            </span>
-                                        </div>
-                                    </form>
-                                    <MenuMain mainMenus={mainMenus}/>
-                                </section>
-                            </aside>                        
-                            <div className="full-height">
-                                <div className="full-height wrapper">
-                                    <div className="content-wrapper">
-                                        <section className="content-header">
-                                            <h1>{title}<small>{subTitle}</small></h1>
-                                            {showBreadcrumb()}
-                                        </section>
-                                        <section className="content">
-                                        {children}
-                                        </section>
-                                    </div>
-                                </div>
-                                <footer className="main-footer no-margin-right">
-                                <div className="pull-right hidden-xs">
-                                    <b>Version</b> 1.0.0
-                                </div>
-                                <strong>Copyright &copy; 2007~{moment().year()}
-                                    <a href="http://www.rkete.com">Rekete</a>
-                                </strong>. All rights reserved.
-                            </footer>  
-                            </div>                            
+                            </form>
+                            <MenuMain mainMenus={mainMenus}/>
+                        </section>
+                    </aside>        
+                    <div className="wrapper">
+                        <div className="content-wrapper">
+                            <section className="content-header">
+                                <h1>{title}<small>{subTitle}</small></h1>
+                                {showBreadcrumb()}
+                            </section>
+                            <section className="content">
+                            {children}
+                            <div className="clearfix" />
+                            </section>
                         </div>
-                    </div>                                                     
-                </div>     
+                    </div>                    
+                    <footer className="main-footer">                        
+                        <strong>Copyright &copy; 2007~{moment().year()}
+                            <a href="http://www.rkete.com">Rekete</a>
+                        </strong>. All rights reserved.
+                        <div className="pull-right hidden-xs">
+                            <b>Version</b> 1.0.0
+                        </div>
+                    </footer>
+                    <div className="clearfix"></div>                                              
+                </div>                               
             </IntlProvider>   
         );
     }

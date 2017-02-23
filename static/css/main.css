@@ -1,6 +1,25 @@
-#__next > div{
-  height: inherit;
+body{
+  background-color:#222d32;
 }
+.content{
+  min-height:85vh;
+}
+.clearfix{
+  clear:both;
+}
+.full-height{
+  height: 100%;
+  width:100%;
+  min-height: 100%;
+}
+.full-height:after{
+  clear:both;
+}
+
+.sidebar-menu{
+  margin-right: 10px;
+}
+
 .nav > li > div > a {
   cursor: pointer;
 }
@@ -10,4 +29,14 @@
 
 .main-footer{
   border-bottom: solid 1px #ccc;
+}
+
+.timeline-list{  
+  overflow: visible;
+}
+
+.timeline-list:after{
+  
+  clear: both;
+  
 }

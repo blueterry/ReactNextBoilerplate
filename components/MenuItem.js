@@ -14,10 +14,10 @@ class MenuItem extends Component {
         var {activeFlag, miIcon, miName, url, subItems} = this.props.menuData
         var mainClass = "";
         if(activeFlag)
-            mainClass = "active "
+            mainClass = " active "
         if(subItems !== undefined && subItems.length > 0){
-            mainClass += " treeview"
-            //subItems = JSON.parse(subItems);
+            mainClass += " treeview "
+            
         }
         //debug
         //console.log('subItems:',subItems);
@@ -51,7 +51,7 @@ class MenuItem extends Component {
                     <i className={"fa " + miIcon}></i>
                     <span><FormattedMessage id={miName} /></span>
                     <span className="pull-right-container">
-                        <i className="fa fa-angle-left pull-right"></i>
+                        <i className={activeFlag?"fa fa-angle-down pull-right":"fa fa-angle-left pull-right"}></i>
                     </span>
                 </a>
                 {renderSubItems(miName)}

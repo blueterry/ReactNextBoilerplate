@@ -17,7 +17,7 @@ export default class MenuMain extends Component {
             })
         }
         return (
-            <ul className="sidebar-menu">
+            <ul className="sidebar-menu ">
                 <li className="header">MAIN Navigation</li>
                 {menuMap()}
             </ul>            
